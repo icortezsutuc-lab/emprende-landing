@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "titulo":"Plan de Negocio",
+        "descripcion":"Aprende a crear un plan empresarial.",
+        "imagen":"plan.png"
+    },
+    {
+        "id":2,
+        "titulo":"Marketing",
+        "descripcion":"Promociona tu empresa.",
+        "imagen":"marketing.png"
+    },
+    {
+        "id":3,
+        "titulo":"Finanzas",
+        "descripcion":"Administra correctamente tu dinero.",
+        "imagen":"finanzas.png"
+    }
+]
