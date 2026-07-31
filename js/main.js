@@ -1,9 +1,14 @@
-const boton = document.getElementById('menuBtn');
-const links = document.querySelector('.nav__links');
+document.addEventListener("DOMContentLoaded", () => {
 
-boton.addEventListener('click', () => {
-    // Muestra u oculta el menú en pantallas pequeñas
-    links.classList.toggle('is-open');
+    const boton = document.getElementById('menuBtn');
+    const links = document.querySelector('.nav__links');
+
+    if (boton && links) {
+        boton.addEventListener('click', () => {
+            links.classList.toggle('is-open');
+        });
+    }
+
+    console.log('Landing de emprendedores lista para la Entrega 1');
+
 });
-
-console.log('Landing de emprendedores lista para la Entrega 1');
