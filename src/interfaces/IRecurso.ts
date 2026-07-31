@@ -1,11 +1,6 @@
 export interface IRecurso {
-
-    id:number;
-
-    titulo:string;
-
-    descripcion:string;
-
-    imagen:string;
-
+    id: number;
+    titulo: string;
+    descripcion: string;
+    imagen: string;
 }
