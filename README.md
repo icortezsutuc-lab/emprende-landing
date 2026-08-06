@@ -80,4 +80,17 @@ npm run dev
 ## Autor
 
 **REALIZADO POR: Ismael Enrique Cortez Sutuc**
+---
 
+# Tecnologías y justificación
+
+| Tecnología | Justificación |
+|------------|---------------|
+| HTML5 | Permite estructurar el contenido del sitio web utilizando etiquetas semánticas. |
+| SCSS (SASS) | Facilita la organización de los estilos mediante variables, mixins y anidamiento. |
+| CSS3 | Se utiliza para el diseño visual, animaciones y responsividad del sitio. |
+| TypeScript | Permite desarrollar la lógica del proyecto con Programación Orientada a Objetos y tipado estático. |
+| JavaScript | Agrega interactividad y funcionalidad dinámica a la página web. |
+| Vite | Herramienta que facilita el desarrollo y la compilación rápida del proyecto. |
+| Git | Controla el historial de cambios del proyecto. |
+| GitHub | Permite almacenar el proyecto en la nube y administrar versiones. |

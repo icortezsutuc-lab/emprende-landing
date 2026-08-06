@@ -1,24 +1,65 @@
-// Mixín para centrar contenido con ancho máximo
+// ======================================
+// MIXINS DEL PROYECTO
+// ======================================
+
+@use 'variables' as v;
+@use 'sass:color';
+
+// ==========================
+// CONTENEDOR
+// ==========================
 @mixin contenedor {
-    max-width: 1100px;
+    width: min(90%, v.$ancho-max);
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-// Mixín para media queries reutilizable
+// ==========================
+// BOTÓN
+// ==========================
+@mixin boton($color) {
+    display: inline-block;
+    background-color: $color;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: v.$radio;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background-color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    &:hover {
+        background-color: color.scale($color, $lightness: -15%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0,0,0,.20);
+    }
+}
+
+// ==========================
+// MEDIA QUERIES
+// ==========================
+
+// Móvil
 @mixin movil {
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         @content;
     }
 }
 
-// Mixín de botón: optimiza el CSS al reutilizar estilos
-@mixin boton($bg, $texto: #fff) {
-    display: inline-block;
-    background: $bg;
-    color: $texto;
-    padding: 12px 26px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
+// Tablet
+@mixin tablet {
+    @media (min-width: 769px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+// Escritorio
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
 }

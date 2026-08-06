@@ -15,23 +15,23 @@ body {
     line-height: 1.6;
 }
 
-// --- Header ---
+// ================= HEADER =================
+
 .site-header {
     background: v.$color-oscuro;
 
-    // Anidamiento: .nav dentro del header
     .nav {
         @include m.contenedor;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding: 16px 0;
 
         .logo {
             color: v.$color-primario;
-            font-weight: 700;
+            font-weight: bold;
             text-decoration: none;
+            font-size: 1.4rem;
         }
 
         &__links {
@@ -40,8 +40,13 @@ body {
             list-style: none;
 
             a {
-                color: #fff;
+                color: white;
                 text-decoration: none;
+                transition: color .3s ease;
+
+                &:hover {
+                    color: v.$color-primario;
+                }
             }
         }
 
@@ -49,77 +54,171 @@ body {
             display: none;
             background: none;
             border: none;
-            color: #fff;
-            font-size: 1.4rem;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
         }
     }
 }
 
-// --- Hero ---
+// ================= HERO =================
+
 .hero {
     @include m.contenedor;
+
     text-align: center;
     padding: 80px 20px;
 
+    animation: aparecer 1s ease;
+
     h1 {
-        font-size: 2.4rem;
-        margin-bottom: 14px;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
     }
 
     p {
         color: #5a6472;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
     }
 }
 
+// ================= BOTÓN =================
+
 .btn {
     @include m.boton(v.$color-primario);
+
+    transition:
+        transform .3s ease,
+        background-color .3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
-// --- Recursos con Grid ---
+// ================= RECURSOS =================
+
 .recursos {
     @include m.contenedor;
-    padding: 40px 20px;
+
+    padding: 50px 20px;
 
     .cards {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3,1fr);
         gap: 20px;
         margin-top: 20px;
     }
 
     .card {
-        background: #fff;
+
+        background: white;
         border-radius: v.$radio;
         padding: 24px;
+
+        transition:
+            transform .3s ease,
+            box-shadow .3s ease;
+
+        &:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 10px 20px rgba(0,0,0,.20);
+
+        }
+
     }
+
 }
 
-// --- Footer ---
+// ================= FOOTER =================
+
 .site-footer {
     background: v.$color-oscuro;
     color: #c3cdd8;
     text-align: center;
-    padding: 24px;
+    padding: 25px;
 }
 
-// --- Responsive con el mixin de media query ---
+// ================= ANIMACIONES =================
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+// ================= RESPONSIVE =================
+
 @include m.movil {
 
-    .site-header .nav__links {
-        display: none;
+    .site-header {
+
+        .nav {
+
+            &__links {
+                display: none;
+            }
+
+            &__toggle {
+                display: block;
+            }
+
+        }
+
     }
 
-    .site-header .nav__toggle {
-        display: block;
+    .hero {
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
     }
 
-    .recursos .cards {
-        grid-template-columns: 1fr;
+    .recursos {
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
     }
 
-    .hero h1 {
-        font-size: 1.8rem;
+}
+
+@include m.tablet {
+
+    .recursos {
+
+        .cards {
+            grid-template-columns: repeat(2,1fr);
+        }
+
     }
+
+}
+
+@include m.desktop {
+
+    .recursos {
+
+        .cards {
+            grid-template-columns: repeat(3,1fr);
+        }
+
+    }
+
 }
